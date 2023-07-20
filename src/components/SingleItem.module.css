@@ -1,0 +1,48 @@
+/* .main {
+    border: 2px solid gray;
+    padding: 20px;
+} */
+
+/* SingleItem.module.css */
+
+.main {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.main:hover {
+    background-color: #D3D3D3;
+    transform: scale(1.05);
+    transition: ease-in-out .3s;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+td:first-child {
+    font-weight: bold;
+}
+
+/* Optional: Add some spacing between the rows */
+tr:not(:first-child) {
+    margin-top: 10px;
+}

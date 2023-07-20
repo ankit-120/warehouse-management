@@ -10,6 +10,16 @@ class WarehouseDataService {
     getAllItems = () => {
         return getDocs(warehouseCollectionRef);
     }
+
+    getItem = (id) => {
+        const warehouseDoc = doc(db, 'warehouse', id);
+        return getDoc(warehouseDoc);
+    }
+
+    updateItem = (id, updatedItem) => {
+        const warehouseDoc = doc(db, 'warehouse', id);
+        return updateDoc(warehouseDoc, updatedItem);
+    }
 }
 
 export default new WarehouseDataService();

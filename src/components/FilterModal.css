@@ -1,0 +1,35 @@
+.app {
+    /* display: none; */
+}
+
+.fixed-bottom {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    /* transform: translateX(-50%); */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+@media screen and (max-width: 768px) {
+    .app {
+        display: block;
+    }
+}

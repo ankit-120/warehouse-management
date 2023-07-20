@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subMainDiv {
+    width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+    .subMainDiv {
+        width: 100%;
+    }
+}

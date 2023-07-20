@@ -1,0 +1,50 @@
+.formContainer {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.formContainer label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.formContainer input[type="text"],
+.formContainer input[type="number"],
+.formContainer input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.formContainer input[type="checkbox"] {
+    height: 20px;
+    width: 20px
+}
+
+.formContainer button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.formContainer button:hover {
+    background-color: #45a049;
+}
+
+/* Optional: Add some space between form elements */
+.formContainer div:not(:last-child) {
+    margin-bottom: 15px;
+}
