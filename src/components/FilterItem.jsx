@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import style from './FilterItem.module.css'
 
 const FilterItem = ({ filterList, filterCategory, add, remove }) => {
 
@@ -8,10 +9,10 @@ const FilterItem = ({ filterList, filterCategory, add, remove }) => {
     console.log(filterCategory)
     return (
         <div>
-            <ul>
+            <ul className={style.ul}>
                 {
                     filterList.map((item, i) => (
-                        <li key={i + 10}>
+                        <li key={i + 10} className={style.li}>
                             <input
                                 type="checkbox"
                                 id={item}

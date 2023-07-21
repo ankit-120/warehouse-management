@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { setSpaceLimit } from '../redux/filterSlice';
+import styles from './FilterOnSpace.module.css';
 
 const FilterOnSpace = () => {
 
@@ -30,22 +31,26 @@ const FilterOnSpace = () => {
     }
 
     return (
-        <div>
-            <div>
-                <label htmlFor="low">Set Lower Limit : </label>
-                <input
-                    type="number"
-                    id='low'
-                    value={limit.low}
-                    onChange={(e) => setLimit({ ...limit, low: e.target.value })} />
-                <label htmlFor="low">Set Upper Limit : </label>
-                <input
-                    type="number"
-                    id='low'
-                    value={limit.high}
-                    onChange={(e) => setLimit({ ...limit, high: e.target.value })} />
+        <div className={styles.container}>
+            <div className={styles['space-inputs']}>
+                <div>
+                    <label htmlFor="low">Set Lower Limit : </label>
+                    <input
+                        type="number"
+                        id='low'
+                        value={limit.low}
+                        onChange={(e) => setLimit({ ...limit, low: e.target.value })} />
+                </div>
+                <div>
+                    <label htmlFor="low">Set Upper Limit : </label>
+                    <input
+                        type="number"
+                        id='low'
+                        value={limit.high}
+                        onChange={(e) => setLimit({ ...limit, high: e.target.value })} />
+                </div>
             </div>
-            <div>
+            <div className={styles.buttons}>
                 <button onClick={handleSubmit}>
                     Set Limit
                 </button>

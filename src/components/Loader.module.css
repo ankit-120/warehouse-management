@@ -1,0 +1,37 @@
+/* Loader.module.css */
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.loader-item {
+    height: 20px;
+    width: 20px;
+    background-color: #007bff;
+    border-radius: 50%;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Define custom animation delays */
+.loader-item:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loader-item:nth-child(3) {
+    animation-delay: 0.2s;
+}

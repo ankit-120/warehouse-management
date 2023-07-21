@@ -28,7 +28,7 @@ const Product = () => {
 
     if (items?.length === 0) {
         return (
-            <div>loading</div>
+            <Loader />
         )
     }
 
@@ -65,19 +65,22 @@ const Product = () => {
 
     return (
         <>
-            {/* <div className={style.filterButton}>
-                <FilterModal />
-            </div> */}
             <div className={style.mainDiv}>
+                <div className={style.search}>
+                    <div><FilterModal /></div>
+                    <div>
+                        <input type="text" placeholder='Search....' />
+                    </div>
+                </div>
                 {
                     filterData().map((item, i) => (
-                        <Link className={style.link} to={`/item/${item.id}`} key={i + 10}>
-                            <SingleItem item={item} key={i + 10} />
-                        </Link>
+
+                        <SingleItem item={item} key={i + 10} />
+
                     ))
                 }
             </div>
-            <div><FilterModal /></div>
+
             {console.log(items[0].id)}
         </>
     )

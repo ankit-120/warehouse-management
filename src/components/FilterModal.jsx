@@ -15,17 +15,16 @@ const FilterModal = () => {
 
     return (
         <div className="app">
-            {/* Your other content */}
-            <div className="fixed-bottom">
-                <button onClick={handleModalOpen}>Open Modal</button>
+            <div className="fixedBottom">
+                <button className='btn' onClick={handleModalOpen}>Filters</button>
             </div>
 
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
-                        <h2>Modal Content</h2>
+                        <h2>Filter Category</h2>
                         <FilterMenu />
-                        <button onClick={handleModalClose}>Close</button>
+                        <button className='btnClose btn' onClick={handleModalClose}>Close</button>
                     </div>
                 </div>
             )}

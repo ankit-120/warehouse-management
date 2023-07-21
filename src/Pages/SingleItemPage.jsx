@@ -162,7 +162,7 @@ const SingleItemPage = () => {
                 </tbody>
             </table>
             <div>
-                <button onClick={() => {
+                <button className={style.btn} onClick={() => {
                     setIsClicked(!isClicked)
                     isClicked ? handleUpdate() : ''
                 }}>

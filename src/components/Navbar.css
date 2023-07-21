@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     padding: 20px;
     background-color: #333;
@@ -17,19 +17,47 @@
 }
 
 .navbar-links {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
+
+
+
+.navLinkDiv {
+    /* width: 100%; */
+    padding: 10px;
+}
+
 
 .navbar-links a {
     color: #fff;
     margin-left: 20px;
     text-decoration: none;
+    font-size: large;
+}
+
+.navbar-links a:hover {
+    color: gray;
 }
 
 /* Responsive styles */
 @media screen and (max-width: 768px) {
+
+    .navLinkDiv {
+        width: 100%;
+    }
+
+    .navLinkDiv:hover {
+        background-color: slategray;
+
+    }
+
+    .navbar-links a:hover {
+        color: white;
+        scale: 1.2;
+    }
 
     .navbar-links {
         display: none;

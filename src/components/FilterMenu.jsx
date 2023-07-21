@@ -27,7 +27,6 @@ const FilterMenu = () => {
         <div className={style.app}>
             <div className={style.leftMenu}>
                 <div
-                    // className={`menu-item ${activeMenuItem === 'city' ? 'active' : ''}`}
                     className={`${style.menuItem} ${activeMenuItem === 'city' ? style.active : ''}`}
                     onClick={() => handleMenuClick('city')}
                 >
@@ -45,12 +44,6 @@ const FilterMenu = () => {
                 >
                     Space Availablity
                 </div>
-                <div
-                    className={`menu-item ${activeMenuItem === 'contact' ? 'active' : ''}`}
-                    onClick={() => handleMenuClick('contact')}
-                >
-                    Contact
-                </div>
             </div>
 
             <div className={style.content}>
@@ -63,7 +56,6 @@ const FilterMenu = () => {
                 {activeMenuItem === 'space' && <div>
                     <FilterOnSpace />
                 </div>}
-                {activeMenuItem === 'contact' && <div>Contact Content</div>}
             </div>
         </div>
     );
