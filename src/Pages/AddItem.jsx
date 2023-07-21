@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './addItem.module.css';
+import styles from './AddItem.module.css';
 import WarehouseDataService from '../services/warehouse.service';
 
 const initialFormData = {
