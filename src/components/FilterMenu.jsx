@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import style from './FilterMenu.module.css';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import FilterItem from './FilterItem';
 import { addCity, removeCity, addCluster, removeCluster } from '../redux/filterSlice';
 import FilterOnSpace from './FilterOnSpace';
+import { clearFilter } from '../redux/filterSlice';
 
 const FilterMenu = () => {
+
+    const dispatch = useDispatch();
 
     const [activeMenuItem, setActiveMenuItem] = useState('home');
 
@@ -44,6 +47,10 @@ const FilterMenu = () => {
                 >
                     Space Availablity
                 </div>
+                <button className={style.btn}
+                    onClick={() => dispatch(clearFilter())}>
+                    Clear Filter
+                </button>
             </div>
 
             <div className={style.content}>

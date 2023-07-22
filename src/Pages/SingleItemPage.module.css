@@ -29,12 +29,30 @@ h1 {
     margin-bottom: 30px;
 }
 
+input[type="checkbox"],
+input[type="number"],
+input[type="text"] {
+    padding: 10px 40px 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 300px;
+    position: relative;
+}
+
+.btnDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 40px;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
     border: 2px solid gray;
     border-radius: 4px;
-
+    margin: 0px 10px;
     background-color: gray;
     color: #fff;
     font-size: 16px;

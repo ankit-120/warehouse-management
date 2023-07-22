@@ -24,10 +24,33 @@
     padding: 20px;
 }
 
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    background-color: gray;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: white;
+    color: gray;
+    border: 2px solid gray;
+}
+
 @media screen and (max-width: 768px) {
     .leftMenu {
         padding: 0px;
         width: 40%;
         height: 80vh;
+    }
+
+    .btn {
+        margin-left: 13px;
     }
 }

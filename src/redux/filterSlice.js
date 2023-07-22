@@ -24,9 +24,14 @@ export const filterSlice = createSlice({
         },
         setSpaceLimit: (state, { payload }) => {
             state.space = payload;
+        },
+        clearFilter: (state, action) => {
+            state.cityList = [];
+            state.clusterList = [];
+            state.space = {};
         }
     }
 });
 
-export const { addCity, removeCity, setSpaceLimit, addCluster, removeCluster } = filterSlice.actions;
+export const { addCity, removeCity, setSpaceLimit, addCluster, removeCluster, clearFilter } = filterSlice.actions;
 export default filterSlice.reducer;

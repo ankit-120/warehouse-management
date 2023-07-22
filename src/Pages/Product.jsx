@@ -4,13 +4,13 @@ import FilterModal from '../components/FilterModal'
 import WarehouseDataService from '../services/warehouse.service';
 import Loader from '../components/Loader';
 import SingleItem from '../components/SingleItem';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../redux/itemSlice';
 import { useSelector } from 'react-redux';
 
 const Product = () => {
 
+    const [search, setSearch] = useState('');
     const dispatch = useDispatch();
     const [items, setItems] = useState([]);
 
@@ -60,6 +60,10 @@ const Product = () => {
                 data.space_available >= space.low && data.space_available <= space.high
             ));
         }
+
+        if (search.length !== 0) {
+            filteredData = filteredData.filter((data) => data.name.toLowerCase().includes(search.toLowerCase()))
+        }
         return filteredData;
     }
 
@@ -69,19 +73,19 @@ const Product = () => {
                 <div className={style.search}>
                     <div><FilterModal /></div>
                     <div>
-                        <input type="text" placeholder='Search....' />
+                        <input
+                            type="text"
+                            placeholder='Search....'
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)} />
                     </div>
                 </div>
                 {
                     filterData().map((item, i) => (
-
                         <SingleItem item={item} key={i + 10} />
-
                     ))
                 }
             </div>
-
-            {console.log(items[0].id)}
         </>
     )
 }

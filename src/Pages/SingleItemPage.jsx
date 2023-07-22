@@ -2,10 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import style from './SingleItemPage.module.css';
 import WarehouseDataService from '../services/warehouse.service';
+import { useNavigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 const SingleItemPage = () => {
 
     const { id } = useParams();
+
+    const navigate = useNavigate();
 
     const [item, setItem] = useState({});
     const [isClicked, setIsClicked] = useState(false);
@@ -31,7 +35,7 @@ const SingleItemPage = () => {
 
     if (Object.keys(item).length === 0) {
         return (
-            <div style={{ paddingTop: '90px' }}>loading</div>
+            <Loader />
         )
     }
 
@@ -140,7 +144,7 @@ const SingleItemPage = () => {
                                     name="is_registered"
                                     value={item.is_registered}
                                     checked={item.is_registered ? true : false}
-                                    onChange={(e) => setItem({ ...item, is_registered: e.target.value })}
+                                    onChange={(e) => setItem({ ...item, is_registered: !item.is_registered })}
                                 /> : item.is_registered ? 'True' : "False"
                             }
                         </td>
@@ -154,20 +158,25 @@ const SingleItemPage = () => {
                                     name="is_live"
                                     value={item.is_live}
                                     checked={item.is_live ? true : false}
-                                    onChange={(e) => setItem({ ...item, is_live: e.target.value })}
+                                    onChange={(e) => setItem({ ...item, is_live: !item.is_live })}
                                 /> : item.is_live ? 'True' : "False"
                             }
                         </td>
                     </tr>
                 </tbody>
             </table>
-            <div>
+            <div className={style.btnDiv}>
                 <button className={style.btn} onClick={() => {
                     setIsClicked(!isClicked)
                     isClicked ? handleUpdate() : ''
                 }}>
                     {isClicked ? 'Save' : 'Update Warehouse'}
                 </button>
+                <button className={style.btn}
+                    onClick={() => navigate('/')}>
+                    Back
+                </button>
+
             </div>
         </div>
     );
