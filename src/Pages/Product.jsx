@@ -62,7 +62,8 @@ const Product = () => {
         }
 
         if (search.length !== 0) {
-            filteredData = filteredData.filter((data) => data.name.toLowerCase().includes(search.toLowerCase()))
+            filteredData = filteredData.filter((data) => data.name.toLowerCase().includes(search.toLowerCase())
+                || data.city.toLowerCase().includes(search.toLowerCase()))
         }
         return filteredData;
     }
