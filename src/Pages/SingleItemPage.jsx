@@ -6,26 +6,31 @@ import { useNavigate } from 'react-router-dom';
 import Loader from '../components/Loader';
 
 const SingleItemPage = () => {
+    //getting id from url
     const { id } = useParams();
     const navigate = useNavigate();
 
+    //state to store warehouse with passed id
     const [item, setItem] = useState({});
+    //state that checks if update is clicked
     const [isClicked, setIsClicked] = useState(false);
+    //state for storing custom field
     const [additionalFields, setAdditionalFields] = useState([]);
 
     useEffect(() => {
         fetchItem();
     }, []);
 
+    //gets warehouse with passed id from db
     const fetchItem = async () => {
         const data = await WarehouseDataService.getItem(id);
         setItem(data.data());
         if (data.data().additionalFields) {
-            console.log(data.data().additionalFields)
             setAdditionalFields([...additionalFields, data.data().additionalFields]);
         }
     };
 
+    //updates the warehouse in db
     const handleUpdate = async () => {
         await WarehouseDataService.updateItem(id, item)
             .then(() => {
@@ -36,11 +41,12 @@ const SingleItemPage = () => {
             });
     };
 
+    //adds new custom field
     const handleAddField = () => {
-        // setAdditionalFields([...additionalFields, { name: '', value: '' }]);
         setItem({ ...item, additionalFields: [...additionalFields, { name: '', value: '' }] });
     };
 
+    //removes the added custom field
     const handleRemoveField = (index) => {
         const updatedFields = [...item.additionalFields];
         updatedFields.splice(index, 1);
@@ -49,6 +55,7 @@ const SingleItemPage = () => {
         setItem({ ...item, additionalFields: updatedFields });
     };
 
+    //Loader
     if (Object.keys(item).length === 0) {
         return <Loader />;
     }
@@ -73,6 +80,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>Code:</td>
                         <td>
@@ -88,6 +96,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>ID:</td>
                         <td>
@@ -103,6 +112,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>City:</td>
                         <td>
@@ -118,6 +128,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>Space Available:</td>
                         <td>
@@ -133,6 +144,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>Type:</td>
                         <td>
@@ -148,6 +160,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>Cluster:</td>
                         <td>
@@ -163,6 +176,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>Is Registered:</td>
                         <td>
@@ -178,6 +192,7 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
+
                     <tr>
                         <td>Is Live:</td>
                         <td>
@@ -193,8 +208,9 @@ const SingleItemPage = () => {
                             )}
                         </td>
                     </tr>
-                    {console.log(additionalFields.map(field => field))}
+
                     {
+                        // conditional rendering additional fields
                         item.additionalFields && item.additionalFields.map((field, index) => (
                             <tr key={index}>
                                 <td>
@@ -255,9 +271,6 @@ const SingleItemPage = () => {
                         <button className={style.btn} onClick={handleAddField}>
                             Add Custom Field
                         </button>
-                        {/* <button className={style.btn} onClick={handleUpdate}>
-                            Save
-                        </button> */}
                     </>
                 )}
                 <button className={style.btn} onClick={() => navigate('/')}>

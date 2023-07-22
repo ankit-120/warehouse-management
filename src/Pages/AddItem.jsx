@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './AddItem.module.css';
 import WarehouseDataService from '../services/warehouse.service';
 
+//intitial form data
 const initialFormData = {
     name: "",
     code: "",
@@ -15,8 +16,11 @@ const initialFormData = {
 };
 
 function AddItem() {
+
+    //state to store form data
     const [formData, setFormData] = useState(initialFormData);
 
+    //to update form data
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData({
@@ -25,9 +29,11 @@ function AddItem() {
         });
     };
 
+    //handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         let flag = false;
+        //checks if all feilds are filled or not
         if (Object.values(formData).forEach((val) => {
             if (val === '') {
                 flag = true;
@@ -38,8 +44,6 @@ function AddItem() {
             alert("Fill all the fields");
             return;
         }
-        console.log(formData);
-
         //adding to db
         await WarehouseDataService.addItem(formData)
             .then(() => {

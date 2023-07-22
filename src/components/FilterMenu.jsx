@@ -10,14 +10,19 @@ const FilterMenu = () => {
 
     const dispatch = useDispatch();
 
+    //state to check active menu
     const [activeMenuItem, setActiveMenuItem] = useState('home');
 
+    //getting all the warehouse from store
     const { items } = useSelector((state) => state.item);
+    //getting cityList and clusterList from store
     const { cityList, clusterList } = useSelector((state) => state.filter)
 
+    //array of all cities
     const setCities = () => {
         return [...new Set(items.map((item) => item.city))];
     }
+    //array of all clusters
     const setClusters = () => {
         return [...new Set(items.map((item) => item.cluster))];
     }
